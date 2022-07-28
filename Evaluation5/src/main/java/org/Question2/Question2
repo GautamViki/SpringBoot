@@ -1,0 +1,20 @@
+A) Explain @Cascade and @mappedBy annotations.
+
+Ans: @Cascade: ===
+Cascading is a feature in Hibernate, which is used to manage the state of
+the mapped entity whenever the state of its relationship owner (superclass) affected.
+When the relationship owner (superclass) is saved/ deleted, then the mapped entity associated with it
+ should also be saved/ deleted automatically.
+
+@mappedBy: ===
+Once we have defined the owning side of the relationship,
+	 Hibernate already has all the information it needs to map that relationship in our database.
+	 To make this association bidirectional, all we'll have to do is to define the referencing side.
+	 The inverse or the referencing side simply maps to the owning side. We can easily use the
+	  mappedBy attribute of @OneToMany annotation to do so.
+
+=========================================================================================
+B) What is ORM in Hibernate?
+
+Ans: ORM stands for Object-Relational Mapping (ORM) is a programming technique for converting data
+ between relational databases and object oriented programming languages such as Java, C#, etc.

@@ -1,0 +1,13 @@
+Question 1) What is lazy loading and eager loading in hibernate?
+
+Ans: Lazy Loading:=====
+ In Lazy loading, associated data loads only when we explicitly call getter or size method.
+ ManyToMany and OneToMany associations used lazy loading strategy by default.
+ It can be enabled by using the annotation parameter:fetch = FetchType.LAZY.
+ Initial load time much smaller than Eager loading.
+
+Eager Loading:======
+ In Eager loading, data loading happens at the time of their parent is fetched.
+ManyToOne and OneToOne associations used lazy loading strategy by default.
+It can be enabled by using the annotation parameter:fetch = FetchType.EAGER.
+Loading too much unnecessary data might impact performance.

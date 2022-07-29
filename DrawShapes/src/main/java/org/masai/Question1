@@ -1,0 +1,13 @@
+Tight coupling ==>
+        If the dependent class wants to call the methods of the dependency class then, it has to create an object of its
+        dependency class, and then the dependent class can call the functionality of its dependency class.
+        Now suppose, if any changes are made in the dependency class and if it is forced to do the changes inside the
+        dependent class also then we can say that both classes are tightly coupled with each other.
+
+
+Loose coupling ==>
+        n simple words, loose coupling means they are mostly independent. If the only knowledge that
+        class A has about class B, is what class B has exposed through its interface, then class A and class B
+        are said to be loosely coupled. In order to over come from the problems of tight coupling between
+        objects, spring framework uses dependency injection mechanism with the help of POJO/POJI model
+         and through dependency injection its possible to achieve loose coupling.

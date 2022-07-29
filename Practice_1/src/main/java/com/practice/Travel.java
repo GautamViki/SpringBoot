@@ -2,7 +2,7 @@ package com.practice;
 
 public class Travel {
     Vehicle v;
-String name;
+    String name;
 
 //    public void setName(String name) {
 //        this.name = name;
@@ -17,9 +17,9 @@ String name;
         this.name = name;
     }
 
-    public void journey(){
+    public void journey() {
         v.go();
         System.out.println("Journey started........");
-        System.out.println("Name is : "+name);
+        System.out.println("Name is : " + name);
     }
 }

@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="pr1" class="com.practice.MyBusinessClass"/>
-    <bean id="c" class="com.practice.Car"/>
-    <bean id="b" class="com.practice.Bike"/>
-    <bean id="t" class="com.practice.Travel">
-<!--        <property name="v" ref="b"/>-->
-<!--        <property name="name" value="Vikas"/>-->
-        <constructor-arg name="v" ref="c"/>
-        <constructor-arg name="name" value="Shivani"/>
+    <!--    <bean id="pr1" class="com.practice.MyBusinessClass"/>-->
+    <!--    <bean id="c" class="com.practice.Car"/>-->
+    <!--    <bean id="b" class="com.practice.Bike"/>-->
+    <!--    <bean id="t" class="com.practice.Travel">-->
+    <!--        <property name="v" ref="b"/>-->
+    <!--        <property name="name" value="Vikas"/>-->
+    <!--        <constructor-arg name="v" ref="c"/>-->
+    <!--        <constructor-arg name="name" value="Shivani"/>-->
+    <!--    </bean>-->
+    <bean id="a1" class="com.practice1.A">
+        <!--        <constructor-arg name="b" ref="b1"/>-->
+        <property name="b" ref="b1"/>
     </bean>
+    <bean id="b1" class="com.practice1.B">
+        <constructor-arg name="a" ref="a1"/>
+    </bean>
+
 </beans>

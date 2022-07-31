@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="s1" class="org.masai.Student">
+        <constructor-arg name="roll" value="101"/>
+        <constructor-arg name="name" value="Vikas"/>
+        <constructor-arg name="marks" value="860"/>
+    </bean>
+    <bean id="s2" class="org.masai.Student">
+        <constructor-arg name="roll" value="102"/>
+        <constructor-arg name="name" value="Anshul"/>
+        <constructor-arg name="marks" value="690"/>
+    </bean>
+    <bean id="s3" class="org.masai.Student">
+        <constructor-arg name="roll" value="105"/>
+        <constructor-arg name="name" value="Chandani"/>
+        <constructor-arg name="marks" value="840"/>
+    </bean>
+    <bean id="s4" class="org.masai.Student">
+        <constructor-arg name="roll" value="109"/>
+        <constructor-arg name="name" value="Shivani"/>
+        <constructor-arg name="marks" value="790"/>
+    </bean>
+    <bean id="s5" class="org.masai.Student">
+        <constructor-arg name="roll" value="129"/>
+        <constructor-arg name="name" value="Saurabh"/>
+        <constructor-arg name="marks" value="770"/>
+    </bean>
+
+    <bean id="std" class="org.masai.Student">
+        <property name="students">
+            <list>
+                <ref bean="s1"/>
+                <ref bean="s2"/>
+                <ref bean="s3"/>
+                <ref bean="s4"/>
+                <ref bean="s5"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="city" class="org.masai.City">
+        <property name="cities">
+            <list>
+                <value>Bengaluru</value>
+                <value>Pune</value>
+                <value>Hyderabad</value>
+                <value>Delhi</value>
+                <value>Bengaluru</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="map1" class="org.masai.Mapping">
+
+        <property name="theMap">
+            <map>
+                <entry key-ref="s1" value="Bengaluru"/>
+                <entry key-ref="s2" value="Pune"/>
+                <entry key-ref="s3" value="Hyderabad"/>
+            </map>
+        </property>
+    </bean>
+</beans>

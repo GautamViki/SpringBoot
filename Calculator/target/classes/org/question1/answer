@@ -1,0 +1,122 @@
+Bean life-cycle:==>
+           For ordinary java class constructor and finalize() methods can be considered as life cycle methods.
+            These methods will be called automatically by the JVM,
+            **Spring container will control the life-cycle of a spring bean, i.e. from instantiation to destruction.
+            **Spring bean class is POJO class, it need not implements any spring f/w API specific interface or extend any
+            class to facilitate the spring container to control the life cycle of a spring bean. i.e. for spring beans, component
+            contract is not required.
+
+Life-cycle of a spring bean has 5 stages:==>
+            1. Does not exist
+            2. Instantiated
+            3. Initialized
+            4. Service
+            5. Destroy
+     Initialization phase:==>
+            If inside the spring bean class any user-defined init-method is configured , spring container will call that
+            method.
+    Note:- unless initialization phase is over , spring container does not gives bean reference to the caller.
+            Before a bean object goes to the client , if we want to perform some initialization logic on that bean obj, then
+            spring f/w provides a way , to write that initialization logic inside a user-defined method and configure that user defined
+             method name using "init-method" attribute of the <bean> tag.
+            Note:- that method must be zero argument with void return type.
+            This "init-method" will be called by the spring container automatically after setting the properties i.e. after
+            performing Dependency Injection.
+            So inside this this method we can assess the injected values also.
+
+    Example :==>
+        A.java:-
+        --------
+        package com.masai;
+        public class A {
+                private String message;
+                public void setMessage(String message) {
+                this.message = message;
+            }
+        public void mySetup() {
+                System.out.println("inside mySetup method to write any initialization logic...");
+                System.out.println("message is :"+message);
+             }
+        public void funA() {
+                System.out.println("inside funA of A");
+            }
+        }
+
+
+        applicationContext.xml:-
+        -----------------------------
+        <bean id="a1" class="com.masai.A" init-method="mySetup">
+                <property name="message" value="Welcome to Spring.."/>
+        </bean>
+
+        Demo.java:-
+        --------------
+        package com.masai;
+        import org.springframework.context.ApplicationContext;
+        import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+        public class Demo {
+            public static void main(String[] args) {
+                    //activate the spring container by locating the spring configuration file..
+                    ApplicationContext ctx= new ClassPathXmlApplicationContext("applicationContext.xml");
+                    A obj = ctx.getBean("a1",A.class);
+                    obj.funA();
+            }
+        }
+
+
+    destruction-phase:==>
+            Before a bean object goes out from the spring container, it is mandatory to release the resources which are
+            allocated by this bean, otherwise memory leak problem will occur.
+            -here we can define a user-defined destory() method(any name) and configure it inside <bean> tag by
+            using "destroy-method" attribute and write the resource releasing logic in that method.
+            Note:- destroy() method will be called by the container only when we close/shutdown the spring
+            container explicitly, then all the beans associated by that container will be released.
+
+            To shut down the container we need to downcast the ApplicationContext reference to the its
+            implementation class:
+            because close() method is not available inside the ApplicationContext , it is available inside its
+            implementation class only
+    Example:==>
+
+            A.java:-
+            ---------
+            package com.masai;
+            import java.sql.Connection;
+            public class A {
+                private String message;
+                    public void destroy() {
+                    System.out.println("inside destroy method..here we can write resource releasing logic..");
+                }
+                public void setMessage(String message) {
+                    this.message = message;
+                }
+                public void mySetup() {
+                    System.out.println("inside mySetup method to write any initialization logic...");
+                    System.out.println("message is :"+message);
+                }
+                public void funA() {
+                    System.out.println("inside funA of A");
+                }
+            }
+
+
+            applicationContext.xml:-
+            ------------------------------
+            <bean id="a1" class="com.masai.A" init-method="mySetup" destroy-method="destroy">
+            <property name="message" value="Welcome to Spring.."/>
+            </bean>
+
+
+            Demo.java:-
+            ---------------
+            public class Demo {
+                public static void main(String[] args) {
+                    //activate the spring container by locating the spring configuration file..
+                    ApplicationContext ctx= new ClassPathXmlApplicationContext("applicationContext.xml");
+                    A obj = ctx.getBean("a1",A.class);
+                    obj.funA();
+                    ClassPathXmlApplicationContext ctx2= (ClassPathXmlApplicationContext)ctx;
+                    ctx2.close();
+                }
+            }

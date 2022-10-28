@@ -14,4 +14,29 @@
         <property name="studentId" value="541"/>
         <property name="city" value="gajipur"/>
     </bean>
+
+    <bean class="org.dependencyCollection.Employee" id="emp1">
+        <property name="name" value="Chandni"/>
+        <property name="phone">
+            <list>
+                <value>8957411197</value>
+                <value>9452470630</value>
+                <value>8853562821</value>
+            </list>
+        </property>
+        <property name="address">
+            <set>
+                <value>Lucknow</value>
+                <value>Kanpur</value>
+                <value>Bengaluru</value>
+            </set>
+        </property>
+        <property name="course">
+            <map>
+                <entry key="Java" value="3 months"/>
+                <entry key="Spring" value="2 months"/>
+                <entry key="JS" value="1 month"/>
+            </map>
+        </property>
+    </bean>
 </beans>

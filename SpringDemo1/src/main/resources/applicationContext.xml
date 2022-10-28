@@ -51,8 +51,13 @@
     </bean>
 
     <!--Constructor Injection-->
+    <bean class="org.dependency.constructor.Certificate" id="cer">
+        <constructor-arg name="name" value="Java"/>
+        <constructor-arg name="duration" value="5"/>
+    </bean>
     <bean class="org.dependency.constructor.Person" id="person">
         <constructor-arg name="id" value="158"/>
         <constructor-arg name="name" value="vikas"/>
+        <constructor-arg name="certificate" ref="cer"/>
     </bean>
 </beans>

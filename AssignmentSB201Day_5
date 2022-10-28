@@ -1,0 +1,79 @@
+Q1. Explain MVC architecture?
+
+Answer:
+ 
+Spring MVC architecture:
+========================
+
+It has three main components:
+-Model
+-View
+-Controller
+
+
+Model(Java bean,+SL+DAL)
+========================
+Handle data logically so it basically deals with data. The model is actually connected 
+to the database so anything you do with data. Adding or retrieving data is done in the model component. 
+
+It is known as the lowest level which means it is responsible for maintaining data. 
+
+View(jsp)
+Data representation is done by the view component. 
+It actually generates UI or user interface for the user. 
+So at web applications view component will be Html/CSS part.
+
+
+Controller(Servlet)
+It’s known as the main man because the controller is the component that enables the interconnection
+between the views and the model so it acts as an intermediary. The controller doesn’t takes part in handling data logic. 
+-----------------------------------------------------------------------------------------------------
+
+Q2. What is the difference between SOAP and Rest API's?
+
+Answer:
+
+SOAP(Simple Oblject Access Protocol ):
+======================================
+--> It is a xml based protocol, to communication between client application and server application.
+--> Since it is xml based, so it is aslo plateform indipendent.
+--> Creating web services using SOAP are having weight.
+
+ex.
+<student>
+	<roll>100</roll>
+	<name></name>
+	<marks></marks>
+</student>
+
+REST(Representeational State Transfer)full:
+===========================================
+
+--> This architecture allows us to create a web srevice with the required operations or functionality and expose them using "HTTP Protocol".
+    and allowes client to access them with the help of http protocol without any extra binding or any xml files.
+--> The web serviecs created by RESTfull architecture are light weight.
+--> In RESTfull, the web service class called as "rootresource" class. And each method is called "resource".
+
+
+
+Q3. What are servlets ? What is the role of request Dispatcher Servlet.
+
+Answer:
+
+Servlet:
+========
+
+
+--> Servlets work on the server-side and are capable of handling complex requests obtained from the webserver.
+--> Servlets are the Java programs that run on the Java-enabled web server or application server. 
+--> They are used to handle the request obtained from the webserver, process the request, produce the response, then send a response back to the webserver.
+
+Dispatcher Servlet:
+===================
+
+--> Using the RequestDispatcher object we send a request to other resources which include (servlet, HTML file, or JSP file). 
+--> A RequestDispatcher object can be used to forward a request to the resource or to include the resource in a response. 
+The resource can be dynamic or static.
+
+
+

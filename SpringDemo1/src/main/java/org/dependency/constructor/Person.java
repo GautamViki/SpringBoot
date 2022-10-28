@@ -8,4 +8,12 @@ public class Person {
         this.name = name;
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                '}';
+    }
 }

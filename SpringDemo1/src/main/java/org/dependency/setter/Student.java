@@ -1,4 +1,4 @@
-package org.example;
+package org.dependency.setter;
 
 public class Student {
     private String name;

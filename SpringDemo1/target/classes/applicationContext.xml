@@ -50,4 +50,10 @@
         <property name="b" ref="b"/>
     </bean>
 
+    <!--Constructor Injection-->
+    <bean class="org.dependency.constructor.Person" id="person">
+        <constructor-arg name="id" value="158"/>
+        <constructor-arg name="name" value="vikas"/>
+
+    </bean>
 </beans>

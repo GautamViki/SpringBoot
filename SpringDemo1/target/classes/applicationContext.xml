@@ -3,7 +3,7 @@
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
-
+    <!--Setter Injection-->
     <bean class="org.example.Student" id="std1">
         <property name="name" value="vikas"/>
         <property name="studentId" value="124"/>
@@ -15,7 +15,8 @@
         <property name="city" value="gajipur"/>
     </bean>
 
-    <bean class="org.dependencyCollection.Employee" id="emp1">
+    <!--Collection Injection-->
+    <bean class="org.dependency.collection.Employee" id="emp1">
         <property name="name" value="Chandni"/>
         <property name="phone">
             <list>
@@ -39,4 +40,14 @@
             </map>
         </property>
     </bean>
+
+    <!--Reference Injection-->
+    <bean class="org.dependency.reference.B" id="b">
+        <property name="y" value="100"/>
+    </bean>
+    <bean class="org.dependency.reference.A" id="a">
+        <property name="x" value="200"/>
+        <property name="b" ref="b"/>
+    </bean>
+
 </beans>

@@ -1,0 +1,7 @@
+Circular Dependency:==>
+            Suppose we have 2 beans A and B, where A depends upon B and B depends upon A, and in both A and B
+            parameterized constructors are defined for injecting the dependency, then it will cause a circular dependency
+            and it will throw an exception:.
+            --------------------------------------------------------------------------------------------------------
+Note:- to solve the circular dependency injection problem, at least one side we need to change the
+dependency injection type from the constructor to setter injection.
